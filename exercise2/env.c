@@ -17,7 +17,15 @@ int main(int argc, char *argv[], char *envp[]) {
 	char line[500];
 	printf("Eingabe:\n");
 	scanf("%s", line);
-	printf("%s : %s\n",line, getenv(line));
+	
+	char value[100];
+	strcpy(value,getenv(line));
+	
+	if(value[0]=='\0'){
+		printf("var nicht gefunden \n");
+		return 0;
+	}
+	printf("%s : %s\n",line,value);
 
 	return 0;
 }
